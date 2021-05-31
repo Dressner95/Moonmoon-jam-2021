@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Levels/Pit/Pit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NewCharacter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/Ranged/Ranged.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/SlashPower/SlashPower.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/EnemySpawnPause.gd" type="Script" id=5]
+[ext_resource path="res://Enemies/Filler/Filler.tscn" type="PackedScene" id=6]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Pit" parent="." instance=ExtResource( 1 )]
+
+[node name="Character" parent="." instance=ExtResource( 2 )]
+position = Vector2( 967.146, 553.414 )
+
+[node name="SlashPower" parent="Character" instance=ExtResource( 4 )]
+position = Vector2( -479.669, -269.817 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[node name="Filler" parent="." instance=ExtResource( 6 )]
+position = Vector2( 641.31, 727.03 )
+
+[node name="Filler2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1285.79, 685.757 )
+
+[node name="Filler3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1309.61, 468.283 )
+
+[node name="Filler4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 960.378, 373.039 )
+
+[node name="Filler5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 619.086, 380.976 )
+
+[node name="Ranged" parent="." instance=ExtResource( 3 )]
+position = Vector2( 517.493, 201.6 )
+movement_speed = 400
+projection_speed = 400
+
+[node name="Ranged2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1414.37, 204.775 )
+movement_speed = 400
+projection_speed = 400
+
+[node name="Ranged3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 963.552, 927.042 )
+movement_speed = 400
+projection_speed = 400
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

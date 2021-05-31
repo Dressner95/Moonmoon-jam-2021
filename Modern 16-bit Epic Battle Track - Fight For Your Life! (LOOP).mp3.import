@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Modern 16-bit Epic Battle Track - Fight For Your Life! (LOOP).mp3-10726867f09e682a4c18f9dbb1c8b65a.mp3str"
+
+[deps]
+
+source_file="res://Modern 16-bit Epic Battle Track - Fight For Your Life! (LOOP).mp3"
+dest_files=[ "res://.import/Modern 16-bit Epic Battle Track - Fight For Your Life! (LOOP).mp3-10726867f09e682a4c18f9dbb1c8b65a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

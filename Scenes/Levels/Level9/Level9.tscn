@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Levels/Pit/Pit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NewCharacter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/Boss/Boss.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/SlashPower/SlashPower.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/EnemySpawnPause.gd" type="Script" id=5]
+[ext_resource path="res://Enemies/Filler/Filler.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemies/Ranged/Ranged.tscn" type="PackedScene" id=7]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Pit" parent="." instance=ExtResource( 1 )]
+
+[node name="Character" parent="." instance=ExtResource( 2 )]
+position = Vector2( 967.146, 553.414 )
+
+[node name="SlashPower" parent="Character" instance=ExtResource( 4 )]
+position = Vector2( -479.669, -269.817 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="Filler" parent="." instance=ExtResource( 6 )]
+position = Vector2( 860.371, 144.453 )
+
+[node name="Filler2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1369.93, 785.763 )
+
+[node name="Filler3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1315.96, 341.291 )
+
+[node name="Filler4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1258.81, 917.518 )
+
+[node name="Filler5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 622.261, 888.944 )
+
+[node name="Filler6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 438.123, 428.598 )
+
+[node name="Filler7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1223.89, 152.39 )
+
+[node name="Filler8" parent="." instance=ExtResource( 6 )]
+position = Vector2( 620.674, 150.803 )
+
+[node name="Boss" parent="." instance=ExtResource( 3 )]
+position = Vector2( 555.59, 552.416 )
+
+[node name="Ranged" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1412.79, 907.993 )
+
+[node name="Ranged2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1412.79, 207.949 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

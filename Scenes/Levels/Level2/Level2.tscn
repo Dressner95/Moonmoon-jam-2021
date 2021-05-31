@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://NewCharacter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MateSC-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Scenes/SlashPower/SlashPower.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Levels/Pit/Pit.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemies/Goon/Goon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/EnemySpawnPause.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="Pit" parent="." instance=ExtResource( 4 )]
+
+[node name="Character" parent="." instance=ExtResource( 1 )]
+position = Vector2( 967.146, 553.414 )
+
+[node name="SlashPower" parent="Character" instance=ExtResource( 3 )]
+position = Vector2( -479.669, -269.817 )
+
+[node name="Control" type="Control" parent="Character"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Character/Control"]
+margin_left = -285.0
+margin_top = 124.0
+margin_right = 275.0
+margin_bottom = 253.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "SHIFT to use your special
+        Draw over enemies
+"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="Goon" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1088.22, 351.592 )
+
+[node name="Goon2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 820.105, 353.739 )
+
+[node name="Goon3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 957.141, 351.689 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

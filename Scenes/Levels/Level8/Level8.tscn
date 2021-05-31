@@ -1,0 +1,70 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Levels/Pit/Pit.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NewCharacter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Enemies/Ranged/Ranged.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/SlashPower/SlashPower.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/EnemySpawnPause.gd" type="Script" id=5]
+[ext_resource path="res://Enemies/Filler/Filler.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Enemies/Wizard/Wizard.tscn" type="PackedScene" id=7]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Pit" parent="." instance=ExtResource( 1 )]
+
+[node name="Character" parent="." instance=ExtResource( 2 )]
+position = Vector2( 967.146, 553.414 )
+
+[node name="SlashPower" parent="Character" instance=ExtResource( 4 )]
+position = Vector2( -479.669, -269.817 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( 963.552, 357.165 )
+recommended_speed = 175
+recommended_range = 125
+
+[node name="Filler" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1363.58, 704.806 )
+
+[node name="Filler2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 841.323, 957.203 )
+
+[node name="Filler3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1149.28, 934.979 )
+
+[node name="Filler4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 603.212, 900.056 )
+
+[node name="Filler5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1193.73, 179.376 )
+
+[node name="Filler6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 757.19, 246.047 )
+recommended_speed = 500
+
+[node name="Filler7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 511.143, 244.46 )
+
+[node name="Filler8" parent="." instance=ExtResource( 6 )]
+position = Vector2( 660.359, 153.978 )
+recommended_speed = 450
+
+[node name="Filler9" parent="." instance=ExtResource( 6 )]
+position = Vector2( 547.653, 476.22 )
+recommended_speed = 500
+
+[node name="Ranged" parent="." instance=ExtResource( 3 )]
+position = Vector2( 512.731, 911.168 )
+movement_speed = 700
+
+[node name="Ranged2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1411.2, 906.406 )
+movement_speed = 700
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
