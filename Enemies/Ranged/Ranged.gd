@@ -70,6 +70,7 @@ func _die(damage):
 		$AnimationTree.get("parameters/playback").travel("die")
 		$"Enviro Collider".disabled = true
 		$"Hitbox/Hitbox Shape".disabled = true
+		Global.num_enemies_left -= 1
 		dead = true
 	pass
 

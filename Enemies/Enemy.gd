@@ -85,7 +85,7 @@ func _die(damage):
 	health = health - damage
 	$".".modulate = Color.red
 	$"Damage Timer".start()	
-	if health <= 0:
+	if health <= 0 and !dead:
 		$AnimationTree.get("parameters/playback").stop()
 		#$AnimationTree.get("parameters/playback").travel("die")
 		#$"Enviro Collider".disabled = true
