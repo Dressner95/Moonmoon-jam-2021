@@ -43,7 +43,7 @@ func _physics_process(delta):
 		if current == "run":
 			velocity = player_position - position
 			distance_to_player = position.distance_to(player_position)
-			
+			print(!attacking)
 		
 		if distance_to_player < attack_range and !attacking and !dead:
 			if player.position.x > position.x:
@@ -79,12 +79,13 @@ func resume():
 	if !dead:
 		$AnimationTree.active = true
 		attacking = false
+		$"Holder/Weapon Hitbox/Weapon Shape".disabled = true
 	paused = false
 
 func _die(damage):
 	health = health - damage
 	$".".modulate = Color.red
-	$"Damage Timer".start()	
+	$"Damage Timer".start()
 	if health <= 0 and !dead:
 		$AnimationTree.get("parameters/playback").stop()
 		#$AnimationTree.get("parameters/playback").travel("die")

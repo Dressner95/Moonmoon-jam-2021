@@ -16,8 +16,11 @@ func _init():
 	pass
 
 func _physics_process(delta):
-	if health < 4:
-		self.attacks = ["attack", "cast"]
+	if attacking and current != "attack":
+		attacking = false
+	
+	if health < 5:
+		self.attacks = ["attack","cast","cast"]
 		attack_range = 150
 		
 

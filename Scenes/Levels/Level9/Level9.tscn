@@ -26,6 +26,7 @@ autostart = true
 
 [node name="Filler" parent="." instance=ExtResource( 6 )]
 position = Vector2( 860.371, 144.453 )
+scale = Vector2( 0.998839, 0.997142 )
 
 [node name="Filler2" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1369.93, 785.763 )
@@ -35,18 +36,6 @@ position = Vector2( 1315.96, 341.291 )
 
 [node name="Filler4" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1258.81, 917.518 )
-
-[node name="Filler5" parent="." instance=ExtResource( 6 )]
-position = Vector2( 622.261, 888.944 )
-
-[node name="Filler6" parent="." instance=ExtResource( 6 )]
-position = Vector2( 438.123, 428.598 )
-
-[node name="Filler7" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1223.89, 152.39 )
-
-[node name="Filler8" parent="." instance=ExtResource( 6 )]
-position = Vector2( 620.674, 150.803 )
 
 [node name="Boss" parent="." instance=ExtResource( 3 )]
 position = Vector2( 555.59, 552.416 )

@@ -508,7 +508,7 @@ end_node = "die"
 [sub_resource type="RectangleShape2D" id=32]
 extents = Vector2( 54.83, 54.1637 )
 
-[node name="KinematicBody2D" type="KinematicBody2D" groups=[
+[node name="Wizard" type="KinematicBody2D" groups=[
 "ENEMY",
 ]]
 script = ExtResource( 6 )
@@ -546,7 +546,7 @@ parameters/run/TimeScale/scale = 1.0
 [node name="Sprite" type="Sprite" parent="Holder"]
 texture = ExtResource( 5 )
 hframes = 8
-frame = 6
+frame = 3
 
 [node name="Weapon Hitbox" type="Area2D" parent="Holder" groups=[
 "enemy_weapon",

@@ -8,5 +8,5 @@ func _init():
 	self.attacks = ["attack1", "attack2"]
 	movement_speed = recommended_speed
 	attack_range = recommended_range
-	health = 5
+	health = 3
 	pass

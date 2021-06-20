@@ -40,11 +40,13 @@ func _physics_process(delta):
 				$Holder.scale.x = 1
 
 func pause():
-	$AnimationTree.active = false
+	if !dead:
+		$AnimationTree.active = false
 	paused = true
 	
 func resume():
-	$AnimationTree.active = true
+	if !dead:
+		$AnimationTree.active = true
 	paused = false
 
 func shot_fired():
@@ -67,7 +69,7 @@ func shot_fired():
 func _die(damage):
 	health = health - damage
 	if health <= 0:
-		$AnimationTree.get("parameters/playback").travel("die")
+		state_machine.travel("die")
 		$"Enviro Collider".disabled = true
 		$"Hitbox/Hitbox Shape".disabled = true
 		Global.num_enemies_left -= 1

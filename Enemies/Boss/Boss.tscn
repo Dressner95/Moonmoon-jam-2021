@@ -247,51 +247,51 @@ nodes/TimeScale/position = Vector2( 460, 140 )
 nodes/output/position = Vector2( 660, 180 )
 node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
-[sub_resource type="AnimationNodeAnimation" id=18]
+[sub_resource type="AnimationNodeAnimation" id=17]
 animation = "run"
 
-[sub_resource type="AnimationNodeTimeScale" id=19]
+[sub_resource type="AnimationNodeTimeScale" id=18]
 
-[sub_resource type="AnimationNodeBlendTree" id=20]
-nodes/Animation/node = SubResource( 18 )
+[sub_resource type="AnimationNodeBlendTree" id=19]
+nodes/Animation/node = SubResource( 17 )
 nodes/Animation/position = Vector2( 380, 180 )
-nodes/TimeScale/node = SubResource( 19 )
+nodes/TimeScale/node = SubResource( 18 )
 nodes/TimeScale/position = Vector2( 560, 180 )
 nodes/output/position = Vector2( 760, 220 )
 node_connections = [ "output", 0, "TimeScale", "TimeScale", 0, "Animation" ]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=28]
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=29]
+[sub_resource type="AnimationNodeStateMachineTransition" id=21]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=33]
+[sub_resource type="AnimationNodeStateMachineTransition" id=22]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+[sub_resource type="AnimationNodeStateMachineTransition" id=23]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+[sub_resource type="AnimationNodeStateMachineTransition" id=24]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+[sub_resource type="AnimationNodeStateMachineTransition" id=25]
 
-[sub_resource type="AnimationNodeStateMachine" id=30]
+[sub_resource type="AnimationNodeStateMachine" id=26]
 states/attack/node = SubResource( 10 )
 states/attack/position = Vector2( 336, 187 )
 states/cast/node = SubResource( 13 )
 states/cast/position = Vector2( 664, 187 )
 states/die/node = SubResource( 16 )
 states/die/position = Vector2( 503, 94 )
-states/run/node = SubResource( 20 )
+states/run/node = SubResource( 19 )
 states/run/position = Vector2( 503, 187 )
-transitions = [ "attack", "die", SubResource( 28 ), "cast", "die", SubResource( 29 ), "attack", "run", SubResource( 33 ), "cast", "run", SubResource( 34 ), "run", "attack", SubResource( 35 ), "run", "cast", SubResource( 36 ) ]
+transitions = [ "attack", "die", SubResource( 20 ), "cast", "die", SubResource( 21 ), "attack", "run", SubResource( 22 ), "cast", "run", SubResource( 23 ), "run", "attack", SubResource( 24 ), "run", "cast", SubResource( 25 ) ]
 start_node = "run"
 end_node = "die"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=31]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=27]
 
-[sub_resource type="RectangleShape2D" id=32]
+[sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 43.721, 26.576 )
 
 [node name="Boss" type="KinematicBody2D" groups=[
@@ -318,11 +318,11 @@ anims/idle = SubResource( 6 )
 anims/run = SubResource( 7 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 30 )
+tree_root = SubResource( 26 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 31 )
-parameters/attack/TimeScale/scale = 1.25
+parameters/playback = SubResource( 27 )
+parameters/attack/TimeScale/scale = 1.45
 parameters/cast/TimeScale/scale = 0.5
 parameters/die/TimeScale/scale = 1.0
 parameters/run/TimeScale/scale = 2.0
@@ -330,13 +330,12 @@ parameters/run/TimeScale/scale = 2.0
 [node name="Holder" type="Node2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Holder"]
-modulate = Color( 1, 1, 1, 0.423529 )
 position = Vector2( 35.7089, -16.9706 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 1 )
 hframes = 8
 vframes = 8
-frame = 8
+frame = 11
 
 [node name="Weapon Hitbox" type="Area2D" parent="Holder" groups=[
 "enemy_weapon",
@@ -344,7 +343,7 @@ frame = 8
 
 [node name="Weapon Shape" type="CollisionShape2D" parent="Holder/Weapon Hitbox"]
 position = Vector2( 48.8, -5.67944 )
-shape = SubResource( 32 )
+shape = SubResource( 28 )
 disabled = true
 
 [node name="Cast Timer" type="Timer" parent="."]
